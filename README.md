@@ -1,3 +1,3 @@
 # YouTube Clone 
-CRUD
-node.js, express.js
+crud development
+node.js, express.js, mongoDB, user Authentication
