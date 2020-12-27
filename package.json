@@ -1,0 +1,23 @@
+{
+  "name": "wetubecrud",
+  "version": "1.0.0",
+  "description": "Cloning Youtube with ValilnaJS and NodeJS",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phj9020/weTubeCRUD.git"
+  },
+  "author": "Han Jin Park",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phj9020/weTubeCRUD/issues"
+  },
+  "homepage": "https://github.com/phj9020/weTubeCRUD#readme"
+}
