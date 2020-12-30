@@ -20,6 +20,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
+
+//Video not Showing- header allows
+app.use(function(req, res, next){
+    res.setHeader("Content-Security-Policy", "script-src 'self' https://archive.org");
+    return next();
+});
+
 app.use(localsMiddleWare);
 // /user경로에 접속하면 router.js의 userRouter 사용하겠다
 app.use(routes.home, globalRouter);
