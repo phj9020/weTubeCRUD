@@ -1,6 +1,6 @@
 @import "./config/variables";
+@import "./config/reset.scss";
+@import "main.scss";
+@import "./partials/header.scss";
 
-body {
-    background-color: $hotColor;
-    ;
-}
+

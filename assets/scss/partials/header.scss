@@ -1,0 +1,55 @@
+.header {
+  background-color: $red;
+  margin-bottom: 50px;
+
+  .header__wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center center;
+    padding: 5px 0px;
+    .header__column {
+      i.fa-youtube {
+        color: white;
+        font-size: 40px;
+      }
+      &:nth-child(2) {
+        width: 100%;
+        justify-self: center;
+      }
+      &:last-child {
+        justify-self: end;
+      }
+      ul {
+        width: 100%;
+        display: flex;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        li:not(:last-child) {
+          margin-right: 15px;
+        }
+        a:visited {
+          color: white;
+        }
+      }
+      form {
+        width: 100%;
+        input {
+          width: 100%;
+          padding: 5px;
+          border-radius: 5px;
+          font-size: 14px;
+          color: $black;
+          font-weight: 900;
+          &::placeholder {
+            font-weight: 300;
+            color: rgb(0, 0, 0);
+          }
+        }
+      }
+    }
+  }
+}
