@@ -17,7 +17,8 @@ main {
   min-height: 70vh;
 }
 button,
-input {
+input:not([type="file"]),
+.fileUpload  {
   width: 100%;
   max-width: 320px;
   padding: 5px 10px;
@@ -32,9 +33,19 @@ input {
   }
 }
 button {
-  width:100px;
-  background-color: $btnColor;
+  width:320px;
+  padding: 10px;
   color:white;
   border: none;
   cursor: pointer;
+  
 }
+
+button.delete {
+  background-color: $dark-red;
+}
+
+button.change{
+  background-color: $changeBtnColor;
+}
+
