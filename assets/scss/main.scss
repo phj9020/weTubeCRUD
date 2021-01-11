@@ -19,13 +19,22 @@ main {
 button,
 input {
   width: 100%;
-  padding: 5px;
+  max-width: 320px;
+  padding: 5px 10px;
   border-radius: 5px;
   font-size: 14px;
   color: $black;
-  font-weight: 700;
+  font-weight: 600;
+  border: none;
   &::placeholder {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.7);
   }
+}
+button {
+  width:100px;
+  background-color: $btnColor;
+  color:white;
+  border: none;
+  cursor: pointer;
 }
