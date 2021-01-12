@@ -7,6 +7,7 @@ import { getJoin, postJoin, getLogin, postLogin, logout } from "../controllers/u
 const globalRouter = express.Router();
 
 globalRouter.get(routes.join, getJoin)
+//패스워드가 맞는지 체크하는 미들웨어가 들어간다 
 globalRouter.post(routes.join, postJoin)
 
 globalRouter.get(routes.login, getLogin)
