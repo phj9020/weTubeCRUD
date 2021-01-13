@@ -26,13 +26,18 @@ export const postJoin = async(req, res, next) => {
     }
 }
 
-//깃헙으로 보냄 
-export const githubLogin = passport.authenticate('github')
+//깃헙 로그인으로 인증처리
+export const githubLogin = passport.authenticate("github");
 
 // 깃헙 갔다 왔을 때 
 export const githubLoginCallBack = (accessToken, refreshToken, profile, cb) => {
     console.log(accessToken, refreshToken, profile, cb)
-}
+};
+
+export const postGithubLogIn = (req, res) => {
+    res.send(routes.home);
+  };
+
 
 
 

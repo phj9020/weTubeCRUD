@@ -1,18 +1,20 @@
 import passport from "passport";
 import GithubStrategy from "passport-github";
 import User from "./models/User";
-import githubLoginCallBack from './controllers/userController'
+import { githubLoginCallBack } from './controllers/userController'
+import routes from './routes';
 
 // 사용자 인증처리
 passport.use(User.createStrategy());
 
-passport.use(new GithubStrategy({
-    clientID: process.env.GITHUB_CLIENT_ID,
-    clientSecret: process.env.GITHUB_SECRET,
-    callbackURL: "http://localhost:4000/auth/github/callback"
-}),
-    // 사용자가 깃헙갔다가 돌아왔을 때 실행 
+passport.use(
+    new GithubStrategy({
+      clientID: process.env.GH_ID,
+      clientSecret: process.env.GH_SECRET,
+      callbackURL: `http://localhost:4000${routes.gitHubCallBack}`
+    },
     githubLoginCallBack
+  )
 );
 
 passport.serializeUser(User.serializeUser());     // 쿠키에는 오직 user.id만 담아서 보내도록 
