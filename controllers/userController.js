@@ -26,6 +26,14 @@ export const postJoin = async(req, res, next) => {
     }
 }
 
+//깃헙으로 보냄 
+export const githubLogin = passport.authenticate('github')
+
+// 깃헙 갔다 왔을 때 
+export const githubLoginCallBack = (accessToken, refreshToken, profile, cb) => {
+    console.log(accessToken, refreshToken, profile, cb)
+}
+
 
 
 export const getLogin = (req, res) => {
@@ -37,7 +45,7 @@ export const postLogin = passport.authenticate("local", {
 });
 
 export const logout = (req, res) => {
-    // To do : Process log out
+    req.logout();
     res.redirect(routes.home);
 }
 
