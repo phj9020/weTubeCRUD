@@ -10,7 +10,6 @@ export const localsMiddleWare = (req, res, next) =>{
     console.log(req.user);
     next();
 }
-
 export const onlyPublic = (req, res, next) => {
     // req.user가 존재하면 home으로 보내고
     if(req.user) {
