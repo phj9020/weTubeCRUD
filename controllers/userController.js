@@ -102,7 +102,7 @@ export const kakaoLoginCallBack = async(accessToken, refreshToken, profile, done
     } = profile;
     console.log(id)
     try{
-        const user = await User.findById(id);
+        const user = await User.findOne({id});
 
         if(user) {
             user.kakaoId = id;

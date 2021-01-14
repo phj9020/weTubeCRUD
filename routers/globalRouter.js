@@ -26,8 +26,9 @@ globalRouter.get(routes.faceBookCallBack, passport.authenticate('facebook',
 { failureRedirect:'/login'}), postFacebookLogin)
 
 globalRouter.get(routes.kakao, kakaoLogin);
+
 globalRouter.get(routes.kakaoCallback, passport.authenticate('kakao',
-{ failureRedirect:'/login'}), postKakaoLogin)
+{ failureRedirect:'#!/login'}), postKakaoLogin)
 
 
 globalRouter.get(routes.me, getMe)

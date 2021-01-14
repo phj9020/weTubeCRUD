@@ -30,7 +30,7 @@ const FACEBOOK = "/auth/facebook";
 const FACEBOOK_CALLBACK = "/auth/facebook/callback";
 
 //kakao 
-const KAKAO = "/auth/kakao";
+const KAKAO = "/oauth/kakao";
 const KAKAO_CALLBACK= "/oauth/kakao/callback";
 
 

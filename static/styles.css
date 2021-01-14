@@ -312,6 +312,8 @@ button.change {
   .social-login .social-login--kakao {
     background-color: #F7E600;
     color: #3A1D1D; }
+    .social-login .social-login--kakao a {
+      color: #3A1D1D; }
 
 .videoBlock video {
   max-width: 100%;
