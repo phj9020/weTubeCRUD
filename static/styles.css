@@ -175,6 +175,11 @@ button {
   color: white;
   border: none;
   cursor: pointer; }
+  button a {
+    display: inline-block;
+    width: 100%; }
+    button a:visited, button a:focus {
+      color: white; }
 
 button.delete {
   background-color: #bb2f2a; }

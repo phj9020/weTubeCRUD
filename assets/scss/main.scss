@@ -38,8 +38,15 @@ button {
   color:white;
   border: none;
   cursor: pointer;
-  
+  a {
+    display: inline-block;
+    width:100%;
+    &:visited, &:focus{
+      color: white;
+    }
+  }
 }
+
 
 button.delete {
   background-color: $dark-red;

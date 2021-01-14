@@ -37,7 +37,7 @@ export const postLogin = passport.authenticate("local", {
 
 
 
-// //깃헙 로그인으로 인증처리
+// 깃헙 웹사이트로 보냄 
 export const githubLogin = passport.authenticate("github");
 
 // 깃헙 갔다 성공적으로 처리하고 왔을 때 
@@ -45,7 +45,7 @@ export const githubLoginCallBack = async(accessToken, refreshToken, profile, cb)
     // 유저 생성 
     console.log(accessToken, refreshToken, profile, cb)
     const { 
-        _json: { id, avatar_url, name, email }
+        _json: { id, avatar_url: avartarUrl, name, email }
     } = profile;
 
     try {
@@ -63,7 +63,7 @@ export const githubLoginCallBack = async(accessToken, refreshToken, profile, cb)
             email,
             name, 
             githubId : id,
-            avartarUrl : avatar_url
+            avartarUrl
         });
         return cb(null, newUser);
         
@@ -76,16 +76,46 @@ export const githubLoginCallBack = async(accessToken, refreshToken, profile, cb)
 // 로그인 후 사용자를 home으로 보낸다 
 export const postGithubLogIn = (req, res) => {
     res.redirect(routes.home);
-  };
+};
+
+
+// 페이스북 웹사이트로 보냄 
+export const facebookLogin = passport.authenticate('facebook');
+
+// 페이스북 콜백 
+export const facebookLoginCallBack = (accessToken, refreshToken, profile, cb) => {
+    console.log(accessToken, refreshToken, profile, cb)
+}
+
+//페이스북 사용자인증 완료시 
+export const postFacebookLogin = (req, res) => {
+    res.redirect(routes.home)
+}
+
 
 
 export const logout = (req, res) => {
-    console.log(req.logout());
     req.logout();
     res.redirect(routes.home);
 }
 
+// getMe에서는 user를 req.user로 전달할것 (지금 로그인한 사용자)
+export const getMe = (req, res) => {
+    res.render("userDetail",{pageTitle: "User Detail", user: req.user});
+}
 
-export const userDetail = (req, res) => res.render("userDetail",{pageTitle: "User Detail"});
+// userDetail에서는 사용자를 찾는 과정이 필요하다 
+// 실제 로그인 사용지 id를 찾아서 override해야 된다 
+export const userDetail = async(req, res) =>{
+    // get parameter 
+    const { params : { id } } = req;
+    try {
+        const user = await User.findById(id);
+        res.render("userDetail",{pageTitle: "User Detail", user});
+    } catch(error){
+        console.log(error)
+        res.redirect(routes.home);
+    }
+};
 export const editProfile = (req, res) => res.render("editProfile",{pageTitle: "Edit Profile"});
 export const changePassword = (req, res) => res.render("changePassword",{pageTitle: "Change Password"});
