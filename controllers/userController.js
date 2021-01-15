@@ -139,7 +139,7 @@ export const getMe = (req, res) => {
 // userDetail에서는 사용자를 찾는 과정이 필요하다 
 // 실제 로그인 사용지 id를 찾아서 override해야 된다 
 export const userDetail = async(req, res) =>{
-    // get parameter 
+    // get parameter  id는 주소창 id
     const { params : { id } } = req;
     try {
         const user = await User.findById(id);
@@ -149,5 +149,50 @@ export const userDetail = async(req, res) =>{
         res.redirect(routes.home);
     }
 };
+
 export const getEditProfile = (req, res) => res.render("editProfile",{pageTitle: "Edit Profile"});
-export const changePassword = (req, res) => res.render("changePassword",{pageTitle: "Change Password"});
+export const postEditProfile = async(req, res) => {
+    const {
+        body: {name, email},
+        file
+    } = req;
+    // console.log(req)
+    try {
+        // update profile에서 수정한 정보를 저장 하고 업데이트
+        await User.findByIdAndUpdate(req.user.id, {
+            name, 
+            email, 
+            //파일이 존재하면 새로운 file.path를 적용하고 새로운 아바타파일이없으면 기존과 같은 avatarURL을 넣는다
+            avartarUrl: file ? file.path : req.user.avartarUrl
+        });
+        //다시 profile페이지로 보낸다 
+        res.redirect(routes.me)
+    } catch (error) {
+        res.redirect(routes.editProfile);
+    }
+}
+
+export const getChangePassword = (req, res) => res.render("changePassword",{pageTitle: "Change Password"});
+
+export const postChangePassword = async(req, res) => {
+    const {
+        body : { oldPassword, newPassword, newPassword1 }
+    } = req;
+
+    console.log(req.body)
+    console.log(oldPassword,newPassword)
+    try {
+        // 새로운 패스워드1 와 패스워드2가 일치하지 않으면 changePassword 페이지로 리다이렉트
+        if(newPassword !== newPassword1) {
+            res.status(400);
+            res.redirect(`/users/${routes.changePassword}`)
+            return;
+        } 
+        await req.user.changePassword(oldPassword, newPassword);
+        // 패스워드가 바뀌면 profile페이지로 이동 
+        res.redirect(routes.me)
+    }catch (error) {
+        res.status(400);
+        res.redirect(`/users/${routes.changePassword}`)
+    }
+}

@@ -190,7 +190,7 @@ button.change {
 .u-avatar {
   height: 100px;
   border-radius: 50%;
-  background-color: black; }
+  border: 1px solid gray; }
 
 .header {
   background-color: #ea232c;
@@ -382,6 +382,9 @@ button.change {
     .user-profile .user-profile__header .profile__username {
       margin-top: 20px;
       font-size: 20px; }
+    .user-profile .user-profile__header .u-avatar {
+      width: 100px;
+      height: 100px; }
   .user-profile .user-profile__btn {
     display: flex;
     flex-direction: column; }
