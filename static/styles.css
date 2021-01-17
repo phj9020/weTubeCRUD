@@ -328,6 +328,41 @@ button.change {
   font-size: 18px;
   margin-bottom: 10px; }
 
+.videoPlayer {
+  position: relative;
+  left: 0px;
+  top: 0px; }
+  .videoPlayer:hover .videoPlayer__controls {
+    opacity: 1; }
+  .videoPlayer video {
+    max-width: 100%; }
+  .videoPlayer .videoPlayer__controls {
+    opacity: 0;
+    transition: opacity 0.4s linear;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    z-index: 11111;
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); }
+    .videoPlayer .videoPlayer__controls .videoPlayer_column:first-child {
+      display: flex;
+      align-items: center; }
+      .videoPlayer .videoPlayer__controls .videoPlayer_column:first-child span:first-child {
+        margin-right: 10px; }
+    .videoPlayer .videoPlayer__controls .videoPlayer_column:last-child {
+      justify-self: end; }
+    .videoPlayer .videoPlayer__controls .videoPlayer_column:nth-child(2) {
+      justify-self: center; }
+    .videoPlayer .videoPlayer__controls i {
+      font-size: 25px; }
+      .videoPlayer .videoPlayer__controls i:hover {
+        cursor: pointer; }
+
 .home-videos {
   display: grid;
   grid-template-columns: repeat(6, minmax(150px, 1fr));
