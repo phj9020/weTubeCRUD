@@ -142,7 +142,8 @@ export const userDetail = async(req, res) =>{
     // get parameter  id는 주소창 id
     const { params : { id } } = req;
     try {
-        const user = await User.findById(id);
+        const user = await User.findById(id).populate('videos');
+        console.log(user)
         res.render("userDetail",{pageTitle: "User Detail", user});
     } catch(error){
         console.log(error)
@@ -185,7 +186,7 @@ export const postChangePassword = async(req, res) => {
         // 새로운 패스워드1 와 패스워드2가 일치하지 않으면 changePassword 페이지로 리다이렉트
         if(newPassword !== newPassword1) {
             res.status(400);
-            res.redirect(`/users/${routes.changePassword}`)
+            res.redirect(`/users${routes.changePassword}`)
             return;
         } 
         await req.user.changePassword(oldPassword, newPassword);
@@ -193,6 +194,6 @@ export const postChangePassword = async(req, res) => {
         res.redirect(routes.me)
     }catch (error) {
         res.status(400);
-        res.redirect(`/users/${routes.changePassword}`)
+        res.redirect(`/users${routes.changePassword}`)
     }
 }

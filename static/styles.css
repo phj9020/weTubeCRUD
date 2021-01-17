@@ -352,6 +352,9 @@ button.change {
       width: 100px;
       margin-bottom: 25px;
       background-color: #4caf50; }
+    .video-detail__container .video__info .video__author a {
+      color: #3498db;
+      font-weight: 500; }
     .video-detail__container .video__info .video__title,
     .video-detail__container .video__info .video__views,
     .video-detail__container .video__info .video__description {
@@ -378,7 +381,8 @@ button.change {
   .user-profile .user-profile__header {
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    margin-bottom: 25px; }
     .user-profile .user-profile__header .profile__username {
       margin-top: 20px;
       font-size: 20px; }
@@ -387,7 +391,8 @@ button.change {
       height: 100px; }
   .user-profile .user-profile__btn {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    margin-bottom: 25px; }
     .user-profile .user-profile__btn button {
       margin-top: 25px;
       background-color: #4caf50; }
