@@ -27,8 +27,24 @@
         .videoPlayer_column:first-child {
             display: flex;
             align-items: center;
+            position: relative;
             span:first-child{
                 margin-right: 10px;
+                margin-left: 10px;
+            }
+            input[type="range"]{
+                position: absolute;
+                top: -90px;
+                left: 0px;
+                width: 20px;
+                height:80px;
+                -webkit-appearance: slider-vertical;
+                -moz-appearance: slider-vertical;
+                appearance: slider-vertical;
+                margin: 0px;
+                padding: 0px 10px;
+                opacity: 0;
+                display: none;
             }
             
         }
@@ -44,5 +60,9 @@
                 cursor: pointer;
             }
         }
+        #totalTime {
+            margin-left: 10px;
+        }
+        
     }
 }
