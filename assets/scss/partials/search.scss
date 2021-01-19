@@ -1,0 +1,13 @@
+.search_header {
+    margin-bottom: 25px;
+    h3 {
+        font-size: 25px;
+        font-weight: 700;
+    }
+}
+
+.search_videos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}

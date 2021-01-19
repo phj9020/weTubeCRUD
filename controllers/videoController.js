@@ -72,13 +72,15 @@ export const getEditVideo = async(req, res) => {
     const { 
         params : { id }
     } = req;
-    console.log(id);
+    // console.log(id);
     
     try { 
         const video = await Video.findById(id);
         console.log(video.creator)
+        console.log(req.user.id)
+        console.log(video.creator !== req.user.id)
         //찾은 비디오에서 creator의 id와 로그인 한 id가 같지 않으면 edit 방지
-        if(video.creator !== req.user.id) {
+        if(video.creator != req.user.id) {
             throw Error();
         } else { 
             res.render("editVideo", {pageTitle: `Edit ${video.title}`, video})
@@ -113,7 +115,7 @@ export const deleteVideo = async(req, res) => {
     }= req;
     try {
         const video = await Video.findById(id);
-        if(video.creator !== req.user.id) {
+        if(video.creator != req.user.id) {
             throw Error();
         } else {
             // find video and delete it 

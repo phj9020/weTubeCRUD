@@ -7,7 +7,7 @@ block content
             img.u-avatar(src=`/${user.avartarUrl}`)
             h4.profile__username= user.name
         //- 로그인한 아이디가 view가 찾은 아이디가 같은지 판별
-        if user.id === loggedUser.id 
+        if loggedUser && user.id === loggedUser.id 
             .user-profile__btn
                 a(href=`/users${routes.editProfile}`)
                     button Edit Profile

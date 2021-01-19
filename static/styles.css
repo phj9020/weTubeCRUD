@@ -148,7 +148,7 @@ body {
 
 main {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   min-height: 70vh; }
 
@@ -331,7 +331,8 @@ button.change {
 .videoPlayer {
   position: relative;
   left: 0px;
-  top: 0px; }
+  top: 0px;
+  width: 100%; }
   .videoPlayer:hover .videoPlayer__controls {
     opacity: 1; }
   .videoPlayer video {
@@ -390,6 +391,17 @@ button.change {
   .record-container #jsStartRecordBtn {
     background-color: #990000; }
 
+.search_header {
+  margin-bottom: 25px; }
+  .search_header h3 {
+    font-size: 25px;
+    font-weight: 700; }
+
+.search_videos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px; }
+
 .home-videos {
   display: grid;
   grid-template-columns: repeat(6, minmax(150px, 1fr));
@@ -408,7 +420,7 @@ button.change {
   align-items: center; }
   .video-detail__container .video__info {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1200px;
     margin-top: 25px; }
     .video-detail__container .video__info button {
       width: 100px;

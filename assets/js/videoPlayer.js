@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 
 const videoContainer = document.getElementById("jsVideoPlayer");
 const videoPlayer = document.querySelector("#jsVideoPlayer video");
@@ -11,6 +11,9 @@ const volumeRange = document.querySelector("#jsVolume");
 
 const registerView = () => {
     const videoId = window.location.href.split("/videos/")[1];
+    // axios method 
+    // axios.post(`/api/${videoId}/view`)
+    // fetch method
     fetch(`/api/${videoId}/view`, {
         method : "POST"
     })
