@@ -379,6 +379,17 @@ button.change {
     .videoPlayer .videoPlayer__controls #totalTime {
       margin-left: 10px; }
 
+.record-container {
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 25px; }
+  .record-container video {
+    width: 100%;
+    background-color: #444444;
+    margin-bottom: 20px; }
+  .record-container #jsStartRecordBtn {
+    background-color: #990000; }
+
 .home-videos {
   display: grid;
   grid-template-columns: repeat(6, minmax(150px, 1fr));
