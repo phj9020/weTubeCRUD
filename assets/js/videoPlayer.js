@@ -78,13 +78,14 @@ const formatDate = seconds => {
 
 function getCurrentTime(){
     const currentTimeVideo = Math.floor(videoPlayer.currentTime);
+    // console.log(currentTimeVideo)
     currentTime.innerHTML = formatDate(currentTimeVideo);
 }
 
 function setTotalTime(){
     // get duration of video and formatDate 30.9 -> 31
     const totalTimeString = formatDate(Math.floor(videoPlayer.duration));
-    // console.log(totalTimeString)
+    console.log(totalTimeString)
     totalTime.innerHTML = totalTimeString;
     setInterval(getCurrentTime, 900);
     // videoPlayer.addEventListener("timeupdate", getCurrentTime)

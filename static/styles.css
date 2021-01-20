@@ -320,13 +320,14 @@ button.change {
     .social-login .social-login--kakao a {
       color: #3A1D1D; }
 
-.videoBlock video {
-  max-width: 100%;
-  margin-bottom: 10px; }
-
-.videoBlock .videoBlock__title {
-  font-size: 18px;
-  margin-bottom: 10px; }
+.videoBlock {
+  width: 100%; }
+  .videoBlock video {
+    max-width: 100%;
+    margin-bottom: 10px; }
+  .videoBlock .videoBlock__title {
+    font-size: 18px;
+    margin-bottom: 10px; }
 
 .videoPlayer {
   position: relative;
@@ -442,9 +443,32 @@ button.change {
     .video-detail__container .video__info .video__views {
       font-size: 16px; }
   .video-detail__container .video__comments {
+    width: 100%;
     margin-top: 25px; }
     .video-detail__container .video__comments .video__comment-number {
-      font-size: 18px; }
+      display: block;
+      font-size: 18px;
+      margin-bottom: 25px;
+      text-align: center;
+      padding: 10px 0px; }
+    .video-detail__container .video__comments .add__comment {
+      max-width: 320px;
+      margin: 0px auto; }
+      .video-detail__container .video__comments .add__comment input[type="text"] {
+        padding: 10px 5px;
+        text-indent: 10px; }
+    .video-detail__container .video__comments .video__comment-list {
+      max-width: 320px;
+      margin: 0px auto;
+      margin-top: 50px; }
+      .video-detail__container .video__comments .video__comment-list li {
+        color: white;
+        padding: 15px 30px;
+        font-size: 18px;
+        margin-bottom: 10px;
+        border-radius: 15px;
+        background-color: #3498db;
+        border-bottom-left-radius: 0px; }
 
 .user-profile {
   width: 100%;
