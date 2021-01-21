@@ -51,3 +51,5 @@ function init(){
 if(commentList) {
     init();
 }
+
+export default handleClick;

@@ -1,4 +1,5 @@
 import axios from "axios";
+import handleClick from "./removeComment";
 
 const addCommentForm = document.querySelector("#jsAddComment");
 const commentList = document.querySelector("#jsCommentList");
@@ -16,16 +17,19 @@ const increaseNumber = () => {
 const addComment = (comment) => {
     const li = document.createElement("li");
     const span = document.createElement("span");
-    const button = document.createElement("button");
-
     span.innerHTML = comment;
-    button.innerHTML= "X";
+
+    const button = document.createElement("button");
     button.classList.add("jsDeleteBtn");
+    button.innerHTML= "X";
 
     li.appendChild(span);
     li.appendChild(button);
+
     commentList.prepend(li);  // 최신댓글이 앞에 오도록 맨 앞에 붙여준다
     commentInput.value = "";
+
+    button.addEventListener("click", handleClick);
     increaseNumber();
 }
 
