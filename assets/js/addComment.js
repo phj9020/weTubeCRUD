@@ -4,6 +4,7 @@ const addCommentForm = document.querySelector("#jsAddComment");
 const commentList = document.querySelector("#jsCommentList");
 const commentNumber = document.querySelector("#jsCommentNumber");
 
+let commentInput
 
 const increaseNumber = () => {
     // 기존에 있던 숫자들을 int로 바꿔주고 1을 증가시킨다
@@ -16,6 +17,7 @@ const addComment = (comment) => {
     const li = document.createElement("li");
     const span = document.createElement("span");
     const button = document.createElement("button");
+
     span.innerHTML = comment;
     button.innerHTML= "X";
     button.classList.add("jsDeleteBtn");
@@ -23,6 +25,7 @@ const addComment = (comment) => {
     li.appendChild(span);
     li.appendChild(button);
     commentList.prepend(li);  // 최신댓글이 앞에 오도록 맨 앞에 붙여준다
+    commentInput.value = "";
     increaseNumber();
 }
 
@@ -48,7 +51,7 @@ const sendComment = async(comment)=> {
 
 const handleSubmit = (event)=> {
     event.preventDefault(); //새로고침 방지
-    const commentInput = addCommentForm.querySelector("input");
+    commentInput = addCommentForm.querySelector("input");
     const comment = commentInput.value;
     sendComment(comment);
     
