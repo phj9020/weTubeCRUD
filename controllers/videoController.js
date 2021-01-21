@@ -2,6 +2,7 @@ import routes from '../routes';
 import Video from '../models/Video';
 import Comment from '../models/Comment';
 
+
 export const home = async(req, res) => {
     try {
         // Bring all Videos from DB
@@ -61,9 +62,9 @@ export const videoDetail = async(req, res) => {
         const video = await Video.findById(id)
         .populate('creator')
         .populate('comments');
-        console.log(video.creator)
+        // console.log(video.creator)
         res.render("videoDetail", {pageTitle: video.title, video });
-        
+
     } catch(error) {
         res.redirect(routes.home);
     }
@@ -172,3 +173,20 @@ export const postAddComment = async (req, res) => {
     }
 }
 
+export const postDeleteComment = async(req,res)=> {
+    const {
+        params: { id },
+        body : { selectedOne }
+    }= req;
+    try {
+        const video = await Video.findById(id);
+        const selectedComment = selectedOne;
+        video.comments.pop(selectedComment);
+        video.save();
+    
+    } catch (error) {
+        res.status(400);
+    } finally {
+        res.end();
+    }
+}

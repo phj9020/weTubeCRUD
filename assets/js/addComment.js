@@ -15,8 +15,13 @@ const increaseNumber = () => {
 const addComment = (comment) => {
     const li = document.createElement("li");
     const span = document.createElement("span");
+    const button = document.createElement("button");
     span.innerHTML = comment;
+    button.innerHTML= "X";
+    button.classList.add("jsDeleteBtn");
+
     li.appendChild(span);
+    li.appendChild(button);
     commentList.prepend(li);  // 최신댓글이 앞에 오도록 맨 앞에 붙여준다
     increaseNumber();
 }

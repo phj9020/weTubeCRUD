@@ -468,7 +468,16 @@ button.change {
         margin-bottom: 10px;
         border-radius: 15px;
         background-color: #3498db;
-        border-bottom-left-radius: 0px; }
+        border-bottom-left-radius: 0px;
+        position: relative; }
+      .video-detail__container .video__comments .video__comment-list button {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        padding: 5px;
+        background-color: gray; }
 
 .user-profile {
   width: 100%;
