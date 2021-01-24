@@ -1,5 +1,6 @@
 // 최신 js버전으로 바꿔서 바벨 작동 여부 확인
 // const express = require('express');
+
 import express from "express";
 import morgan from "morgan";
 import helmet from"helmet";
@@ -8,6 +9,7 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import mongoose from "mongoose";
 import session from "express-session";
+import path from "path";
 import MongoStore from "connect-mongo";
 import { localsMiddleWare } from "./middlewares";
 import userRouter from "./routers/userRouter";
@@ -24,8 +26,10 @@ const CookieStore = MongoStore(session);
 // middleware
 app.use(helmet({contentSecurityPolicy: false}));
 app.set('view engine', 'pug');
-app.use("/uploads", express.static("uploads"));
-app.use("/static", express.static("static"));
+app.set("views", path.join(__dirname, 'views'))
+// alternated with aws S3 
+// app.use("/uploads", express.static("uploads"));
+app.use("/static", express.static(path.join(__dirname, 'static')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());

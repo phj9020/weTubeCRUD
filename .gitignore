@@ -101,6 +101,7 @@ dist
 package-lock.json
 uploads
 static
+build
 
 # DynamoDB Local files
 .dynamodb/
