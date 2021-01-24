@@ -1,4 +1,5 @@
 import axios from 'axios';
+import getBlobDuration from 'get-blob-duration';
 
 const videoContainer = document.getElementById("jsVideoPlayer");
 const videoPlayer = document.querySelector("#jsVideoPlayer video");
@@ -82,9 +83,15 @@ function getCurrentTime(){
     currentTime.innerHTML = formatDate(currentTimeVideo);
 }
 
-function setTotalTime(){
+async function setTotalTime(){
+    const blob = await fetch(videoPlayer.src)
+    .then(response => response.blob());
+
+    const duration = await getBlobDuration(blob);
+    const totalTimeString = formatDate(Math.floor(duration));
+
     // get duration of video and formatDate 30.9 -> 31
-    const totalTimeString = formatDate(Math.floor(videoPlayer.duration));
+    // const totalTimeString = formatDate(Math.floor(videoPlayer.duration));
     console.log(totalTimeString)
     totalTime.innerHTML = totalTimeString;
     setInterval(getCurrentTime, 900);

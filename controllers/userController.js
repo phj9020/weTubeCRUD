@@ -140,7 +140,9 @@ export const getMe = (req, res) => {
 // 실제 로그인 사용지 id를 찾아서 override해야 된다 
 export const userDetail = async(req, res) =>{
     // get parameter  id는 주소창 id
-    const { params : { id } } = req;
+    const { 
+        params : { id } 
+    } = req;
     try {
         const user = await User.findById(id).populate('videos');
         console.log(user)
@@ -164,7 +166,7 @@ export const postEditProfile = async(req, res) => {
             name, 
             email, 
             //파일이 존재하면 새로운 file.path를 적용하고 새로운 아바타파일이없으면 기존과 같은 avatarURL을 넣는다
-            avartarUrl: file ? file.path : req.user.avartarUrl
+            avartarUrl: file ? file.location : req.user.avartarUrl
         });
         //다시 profile페이지로 보낸다 
         res.redirect(routes.me)

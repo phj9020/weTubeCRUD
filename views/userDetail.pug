@@ -4,7 +4,7 @@ include mixins/videoBlock
 block content
     .user-profile
         .user-profile__header
-            img.u-avatar(src=`/${user.avartarUrl}`)
+            img.u-avatar(src=user.avartarUrl)
             h4.profile__username= user.name
         //- 로그인한 아이디가 view가 찾은 아이디가 같은지 판별
         if loggedUser && user.id === loggedUser.id 
