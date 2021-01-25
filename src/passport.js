@@ -14,7 +14,9 @@ passport.use(
     new GithubStrategy({
       clientID: process.env.GH_ID,
       clientSecret: process.env.GH_SECRET,
-      callbackURL: `https://damp-ocean-58580.herokuapp.com/${routes.gitHubCallBack}`
+      callbackURL: process.env.PRODUCTION
+      ? `https://damp-ocean-58580.herokuapp.com/${routes.githubCallback}`
+      : `http://localhost:4000${routes.githubCallback}`
     },
     githubLoginCallBack
   )
@@ -24,7 +26,9 @@ passport.use(
   new FacebookStrategy({
       clientID: process.env.FB_ID,
       clientSecret: process.env.FB_SECRET,
-      callbackURL: `https://damp-ocean-58580.herokuapp.com/${routes.faceBookCallBack}`,
+      callbackURL: process.env.PRODUCTION
+      ? `https://damp-ocean-58580.herokuapp.com/${routes.githubCallback}`
+      : `http://localhost:4000${routes.githubCallback}`,
       profileFields:['id', 'displayName', 'photos', 'email'],
       scope: ['public_profile', 'email']
   },
@@ -36,7 +40,9 @@ passport.use(
   new KakaoStrategy({
       clientID: process.env.KAKAO_ID,
       clientSecret: process.env.KAKAO_SECRET,
-      callbackURL: `https://damp-ocean-58580.herokuapp.com/${routes.kakaoCallback}`
+      callbackURL: process.env.PRODUCTION
+      ? `https://damp-ocean-58580.herokuapp.com/${routes.githubCallback}`
+      : `http://localhost:4000${routes.githubCallback}`
   },
   kakaoLoginCallBack
   )
