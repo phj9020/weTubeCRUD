@@ -50,7 +50,8 @@
     "mini-css-extract-plugin": "^1.3.3",
     "nodemon": "^2.0.6",
     "postcss": "^8.2.3",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "shx": "^0.3.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -59,8 +60,8 @@
     "build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
     "build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
     "build": "npm run build:server && npm run build:assets && npm run copyAll",
-    "copyAll" : "xcopy src\\static build\\static /d /e /h /c /y /i && xcopy src\\views build\\views /d /e /h /c /y /i",
-    "prebuild" : "rd /s \"build\"",
+    "copyAll": "shx xcopy src\\static build\\static /d /e /h /c /y /i && xcopy src\\views build\\views /d /e /h /c /y /i",
+    "prebuild": "shx rd /s \"build\"",
     "tunnel": "lt --port 4000",
     "start": "node build/init.js"
   },
