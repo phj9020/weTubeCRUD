@@ -10,6 +10,7 @@ import passport from "passport";
 import mongoose from "mongoose";
 import session from "express-session";
 import path from "path";
+import flash from "express-flash";
 import MongoStore from "connect-mongo";
 import { localsMiddleWare } from "./middlewares";
 import userRouter from "./routers/userRouter";
@@ -42,6 +43,9 @@ app.use(session({
     store: new CookieStore({mongooseConnection: mongoose.connection})
 })
 );
+
+app.use(flash());
+
 // cookieParser로부터 쿠키가 내려와서 쿠키가 passport가 initialize되고
 // passport가 스스로 쿠키를 들여다봐서 그 쿠키 정보에 해당하는 사용자를 찾아준다 
 app.use(passport.initialize()); 
