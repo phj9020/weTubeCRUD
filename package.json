@@ -1,6 +1,9 @@
 {
   "name": "wetubecrud",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.18.2"
+  },
   "description": "Cloning Youtube with ValilnaJS and NodeJS",
   "main": "index.js",
   "dependencies": {
